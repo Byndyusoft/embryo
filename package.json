@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Frontend project infrastructure at Byndyusoft",
   "scripts": {
+    "build": "webpack --config ./configs/webpack.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
