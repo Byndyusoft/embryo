@@ -1,0 +1,13 @@
+{
+  "name": "human-user-interface",
+  "description": "Frontend project infrastructure at Byndyusoft",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByndyuSoft/hui.git"
+  },
+  "author": "Edele Gizatullin <edele@byndyusoft.com>",
+  "license": "GPL-3.0"
+}
