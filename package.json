@@ -10,5 +10,8 @@
     "url": "git+https://github.com/ByndyuSoft/hui.git"
   },
   "author": "Edele Gizatullin <edele@byndyusoft.com>",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
 }
