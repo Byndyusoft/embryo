@@ -4,8 +4,10 @@
   "description": "UI starter kit. Work in progress.",
   "main": "src/index.js",
   "scripts": {
+    "analyze": "webpack --json > stats.json",
     "clean": "rimraf build/*",
-    "build": "npm run clean && webpack",
+    "build": "npm run clean && webpack --config webpack.production.config.js --progress",
+    "dev": "node src/server.js",
     "lint": "eslint src --ext .js",
     "start": "echo \"Error\" && exit 1",
     "test": "mocha src --recursive --compilers js:babel-core/register --reporter landing"
