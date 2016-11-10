@@ -1,0 +1,28 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true,
+    "browser": true
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "rules": {
+    "arrow-body-style": 0,
+    "arrow-parens": [2, "as-needed"],
+    "comma-dangle": 0,
+    "eol-last": 1,
+    "indent": [2, 4],
+    "linebreak-style": 0,
+    "no-console": 1
+  }
+}
