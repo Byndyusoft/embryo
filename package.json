@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint src --ext .js",
+    "start": "echo \"Error\" && exit 1",
     "test": "mocha src --recursive --compilers js:babel-core/register --reporter landing"
   },
   "repository": {
