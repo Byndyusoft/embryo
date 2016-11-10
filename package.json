@@ -2,8 +2,9 @@
   "name": "@byndyusoft/embryo",
   "version": "0.0.0",
   "description": "UI starter kit. Work in progress.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/byndyusoft/ui.embryo/issues"
   },
-  "homepage": "https://github.com/byndyusoft/ui.embryo#readme"
+  "homepage": "https://github.com/byndyusoft/ui.embryo#readme",
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
 }
