@@ -23,6 +23,18 @@
     "eol-last": 1,
     "indent": [2, 4],
     "linebreak-style": 0,
-    "no-console": 1
+    "no-console": 1,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ]
   }
 }

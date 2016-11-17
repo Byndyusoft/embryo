@@ -30,8 +30,8 @@ const config = {
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss')
-        },{
-            test: /\.png$/,
+        }, {
+            test: /\.(png|jpg)$/,
             loader: 'file?name=img/[name].[hash].[ext]'
         }]
     },
