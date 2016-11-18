@@ -1,48 +1,21 @@
-const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('./webpack.common.config');
 const pkg = require('./package.json');
 
-const config = {
-    entry: {
-        app: path.join(__dirname, 'src', 'index.js')
-    },
-
-    output: {
-        path: path.join(__dirname, 'build'),
-        filename: 'js/[name].[hash].js',
-        publicPath: '/'
-    },
-
+module.exports = Object.assign({}, config, {
     module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel'
-        }, {
-            test: /\.json$/,
-            loader: 'json'
-        }, {
+        loaders: config.module.loaders.concat([{
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss')
-        }, {
-            test: /\.(png|jpg)$/,
-            loader: 'file?name=img/[name].[hash].[ext]'
-        }]
+        }])
     },
 
-    postcss() {
-        return [autoprefixer];
-    },
-
-    plugins: [
-        new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'index.html') }),
-        new webpack.NoErrorsPlugin(),
+    plugins: config.plugins.concat([
+        new ExtractTextPlugin('css/styles.[hash].css'),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: { warnings: false },
@@ -54,7 +27,5 @@ const config = {
                 NODE_ENV: JSON.stringify('production')
             }
         })
-    ]
-};
-
-module.exports = config;
+    ])
+});
