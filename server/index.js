@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const devMiddleware = require('webpack-dev-middleware');
 const hotMiddleware = require('webpack-hot-middleware');
-const config = require('./webpack.development.config');
+const config = require('../webpack/webpack.debug.config');
 
 const compiler = webpack(config);
 const app = express();
@@ -17,12 +17,12 @@ const options = {
     publicPath: config.output.publicPath
 };
 
-app.use(express.static('build'));
+app.use(express.static('../build'));
 app.use(hotMiddleware(compiler));
 app.use(devMiddleware(compiler, options));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 /* eslint-disable no-console */

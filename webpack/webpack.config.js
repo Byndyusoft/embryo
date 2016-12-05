@@ -1,15 +1,14 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: [
-        path.join(__dirname, 'src', 'index.js')
-    ],
+    entry: {
+        index: path.join(__dirname, '../src', 'index.js')
+    },
 
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, '../build'),
         filename: 'js/[name].[hash].js',
         publicPath: '/'
     },
@@ -38,7 +37,6 @@ module.exports = {
     },
 
     plugins: [
-        new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'index.html') }),
-        new webpack.NoErrorsPlugin()
+        new HtmlWebpackPlugin({ template: path.join(__dirname, '../src', 'index.html') })
     ]
 };
