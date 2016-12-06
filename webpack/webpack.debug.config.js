@@ -16,7 +16,7 @@ config.plugins.push(
     new webpack.BannerPlugin(`${pkg.name}-${new Date()}. DEBUG.`)
 );
 
-const stylesLoaders = `css?${JSON.stringify(cssConfig)}!postcss`;
+const stylesLoaders = `style!css?${JSON.stringify(cssConfig)}!postcss`;
 
 config.module.loaders.push({
     test: /\.scss$/,
