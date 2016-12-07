@@ -27,17 +27,10 @@
     "indent": [2, 4],
     "linebreak-style": 0,
     "no-console": 1,
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react/jsx-indent": [2, 4],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-space-before-closing": 1,
+    "react/prefer-stateless-function": 1
   }
 }
