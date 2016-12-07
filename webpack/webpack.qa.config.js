@@ -23,7 +23,7 @@ config.plugins.push(
         'process.env': {
             NODE_ENV: JSON.stringify('production')
         },
-        PROJECT_ENV: 'qa'
+        PROJECT_ENV: JSON.stringify('qa')
     })
 );
 

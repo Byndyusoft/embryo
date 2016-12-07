@@ -12,7 +12,7 @@ const cssConfig = {
 config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
 config.plugins.push(
     new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({ PROJECT_ENV: 'debug' }),
+    new webpack.DefinePlugin({ PROJECT_ENV: JSON.stringify('debug') }),
     new webpack.BannerPlugin(`${pkg.name}-${new Date()}. DEBUG.`)
 );
 
