@@ -11,7 +11,7 @@
     "build:qa": "npm run clean && webpack --config webpack/webpack.qa.config.js",
     "build:release": "npm run clean && webpack --config webpack/webpack.release.config.js",
     "lint": "eslint src --ext .js",
-    "start": "node server/index.js",
+    "start": "npm run clean && node server/index.js",
     "test": "mocha src --recursive --compilers js:babel-core/register --reporter landing"
   },
   "repository": {
@@ -58,6 +58,7 @@
     "webpack-hot-middleware": "^2.13.2"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-polyfill": "^6.16.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
