@@ -1,7 +1,7 @@
 import identity from './identity';
 
 function isCorrectPayload(value) {
-    return Object.keys(value).every(key => key === 'error' || key === 'payload');
+    return Object.keys(value).every(key => key === 'error' || key === 'payload' || key === 'index');
 }
 
 export default (type, createPayload = identity) => arg => {
