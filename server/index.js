@@ -14,15 +14,29 @@ const options = {
     hot: true,
     inline: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    publicPath: config.output.publicPath
+    publicPath: config.output.publicPath,
+    stats: {
+        colors: true,
+    },
+    historyApiFallback: true
 };
 
-app.use(express.static('build'));
 app.use(hotMiddleware(compiler));
 app.use(devMiddleware(compiler, options));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+app.use('*', (req, res, next) => {
+    const filename = path.join(compiler.outputPath, 'index.html');
+    /* eslint-disable consistent-return */
+    compiler.outputFileSystem.readFile(filename, (err, result) => {
+        if (err) {
+            return next(err);
+        }
+
+        res.set('content-type', 'text/html');
+        res.send(result);
+        res.end();
+    });
+    /* eslint-enable consistent-return */
 });
 
 /* eslint-disable no-console */
