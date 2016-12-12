@@ -26,6 +26,7 @@
     "eol-last": 1,
     "indent": [2, 4],
     "linebreak-style": 0,
+    "max-len": 0,
     "no-confusing-arrow": 0,
     "no-console": 1,
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],

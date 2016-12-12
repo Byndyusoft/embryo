@@ -1,8 +1,9 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from '../reducer';
+import { identity } from '../utilities';
 
-let devTools = f => f;
+let devTools = identity;
 
 if (PROJECT_ENV !== 'release') {
     if (window.devToolsExtension) {

@@ -12,7 +12,7 @@ export default function () {
 
         return auth
             .login()
-            .then(res => dispatch(success(res.data)))
-            .catch(error => dispatch(failure(null, error)));
+            .then(res => dispatch(success({ payload: res.data })))
+            .catch(error => dispatch(failure({ error })));
     };
 }

@@ -17,7 +17,7 @@ const options = {
     publicPath: config.output.publicPath
 };
 
-app.use(express.static('../build'));
+app.use(express.static('build'));
 app.use(hotMiddleware(compiler));
 app.use(devMiddleware(compiler, options));
 
