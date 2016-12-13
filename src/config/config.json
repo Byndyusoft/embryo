@@ -1,3 +1,4 @@
 {
-  "baseApiPath": "localhost/"
+  "baseApiPath": "localhost/",
+  "localStorageTokenKey": "some.token"
 }
