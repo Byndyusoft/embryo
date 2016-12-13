@@ -1,26 +1,22 @@
+import jwtDecode from 'jwt-decode';
 import * as types from './constants/action-types';
 import { createReducer, nextState } from '../../utilities';
 import localStorageTokenKey from '../../config';
 
-let user = {
-    isAuthenticated: false,
-    username: '',
-    role: ''
-};
-
+let user;
 const token = localStorage.getItem(localStorageTokenKey);
 
 if (token !== null) {
-
+    try {
+        user = jwtDecode(token);
+    } catch (err) {
+        user = { isAuthenticated: false, username: '', role: '' };
+    }
 }
 
-const initialState = {
-    ...user,
-    isPending: false,
-    error: ''
-};
+const initialState = { ...user, isPending: false, error: '' };
 
-const actions = {
+export const actions = {
     [types.LOGIN_REQUEST]: state => {
         return nextState(state, { isPending: true, isAuthenticated: false });
     },
