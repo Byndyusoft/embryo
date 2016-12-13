@@ -16,3 +16,20 @@ render(
     </Provider>,
     root
 );
+
+if (PROJECT_ENV === 'debug') {
+    if (module.hot) {
+        module.hot.accept('./routes', () => {
+            /* eslint-disable global-require */
+            const nextRoutes = require('./routes').default;
+            /* eslint-enable global-require */
+
+            render(
+                <Provider store={store}>
+                    <Router history={history} routes={nextRoutes} />
+                </Provider>,
+                root
+            );
+        });
+    }
+}
