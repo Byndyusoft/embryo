@@ -1,16 +1,6 @@
-import createAction from './create-action';
-import createReducer from './create-reducer';
-import identity from './identity';
-import nextState from './next-state';
-
-export { createAction };
-export { createReducer };
-export { identity };
-export { nextState };
-
-export default {
-    createAction,
-    createReducer,
-    identity,
-    nextState
-};
+/* eslint-disable import/prefer-default-export */
+export { default as createAction } from './create-action';
+export { default as createReducer } from './create-reducer';
+export { default as identity } from './identity';
+export { default as nextState } from './next-state';
+/* eslint-enable import/prefer-default-export */
