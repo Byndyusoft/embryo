@@ -11,14 +11,8 @@ const port = 3000;
 
 const options = {
     noInfo: true,
-    hot: true,
-    inline: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    publicPath: config.output.publicPath,
-    stats: {
-        colors: true,
-    },
-    historyApiFallback: true
+    publicPath: config.output.publicPath
 };
 
 app.use(hotMiddleware(compiler));
