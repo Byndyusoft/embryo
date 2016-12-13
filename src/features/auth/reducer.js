@@ -3,7 +3,7 @@ import { createReducer, nextState } from '../../utilities';
 
 const initialState = {
     isPending: false,
-    isAuthorized: false,
+    isAuthenticated: false,
     username: '',
     role: '',
     error: ''
