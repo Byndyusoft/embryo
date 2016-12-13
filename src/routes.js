@@ -11,7 +11,7 @@ export default (
     <Route path="/" component={DefaultLayout}>
         <IndexRoute component={Home} />
         <Route path="login" component={Login} />
-        <Route path="about" component={ensure(About, { roles: [], redirect: '/login' })} />
+        <Route path="about" component={ensure(About, { roles: ['admin'], redirectTo: '/login' })} />
         <Route path="sample/:id(/:optional)" component={Sample} />
         <Route path="*" component={NotFound} status={404} />
     </Route>

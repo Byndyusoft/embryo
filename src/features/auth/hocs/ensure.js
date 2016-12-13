@@ -5,13 +5,14 @@ import history from '../../../history';
 export default function (ComposedComponent, options = {}) {
     class AuthenticatedComponent extends Component {
         static propTypes = {
-            isAuthenticated: PropTypes.bool
+            isAuthenticated: PropTypes.bool,
+            role: PropTypes.string
         };
 
         constructor(props) {
             super(props);
 
-            this.redirectPath = options.redirect || '/login';
+            this.redirectTo = options.redirectTo || '/login';
             this.roles = options.roles || [];
         }
 
@@ -26,7 +27,9 @@ export default function (ComposedComponent, options = {}) {
         checkAuth(isAuthenticated) {
             if (!isAuthenticated) {
                 const path = this.props.location.pathname;
-                history.push(path === '/' ? this.redirectPath : `${this.redirectPath}?return=${path}`);
+                history.push(path === '/' ? this.redirectTo : `${this.redirectTo}?return=${path}`);
+            } else if (this.roles.length && this.roles.indexOf[this.props.role] === -1) {
+                history.push('/not-found');
             }
         }
 
