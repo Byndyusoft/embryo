@@ -1,35 +1,23 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import { Router } from 'react-router';
-import { Provider } from 'react-redux';
 import store from './store';
-import routes from './routes';
 import history from './history';
 import './index.scss';
+import Root from './root';
 
-const root = document.getElementById('root');
+const el = document.getElementById('root');
 
-render(
-    <Provider store={store}>
-        <Router history={history} routes={routes} />
-    </Provider>,
-    root
-);
+render(<Root store={store} history={history} />, el);
 
 if (PROJECT_ENV === 'debug') {
     if (module.hot) {
-        module.hot.accept('./routes', () => {
+        module.hot.accept('./root', () => {
             /* eslint-disable global-require */
-            const nextRoutes = require('./routes').default;
+            const NextRoot = require('./root').default;
             /* eslint-enable global-require */
 
-            render(
-                <Provider store={store}>
-                    <Router history={history} routes={nextRoutes} />
-                </Provider>,
-                root
-            );
+            render(<NextRoot store={store} history={history} />, el);
         });
     }
 }
