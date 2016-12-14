@@ -29,6 +29,7 @@
     "max-len": 0,
     "no-confusing-arrow": 0,
     "no-console": 1,
+    "no-empty": [2, { "allowEmptyCatch": true }],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/jsx-indent": [2, 4],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
