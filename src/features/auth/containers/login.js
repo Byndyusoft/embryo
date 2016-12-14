@@ -55,7 +55,7 @@ class Login extends Component {
         const state = schema({ username, password });
 
         if (state.isValid) {
-            this.props.login({ username, password });
+            this.props.login({ username, password }, this.props.location.query.return || '/');
             this.setState({ errors: { ...defaultErrors } });
         } else {
             this.setState({ errors: { ...defaultErrors, ...state.errors } });
