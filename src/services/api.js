@@ -13,12 +13,8 @@ const http = axios.create({
 });
 
 export const auth = {
-    login() {
-        return http.post(urls.request('auth/login'));
-    },
-
-    logout() {
-        return http.post(urls.request('auth/logout'));
+    login(user) {
+        return http.post(urls.request('auth/login'), user);
     }
 };
 
