@@ -1,13 +1,14 @@
-import { auth } from '../../../services/api';
 import { LOGIN_LOGOUT } from '../constants/action-types';
 import { createAction } from '../../../utilities';
+import config from '../../../config';
+import history from '../../../history';
 
-export const request = createAction(LOGIN_LOGOUT);
+const logout = createAction(LOGIN_LOGOUT);
 
 export default function () {
     return dispatch => {
-        dispatch(request());
-
-        return auth.login();
+        localStorage.removeItem(config.localStorageTokenKey);
+        dispatch(logout());
+        history.push('/login');
     };
 }
