@@ -35,7 +35,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-space-before-closing": 1,
     "react/prefer-stateless-function": 1,
-    "react/prop-types": [1, { "ignore": ["location"] }],
+    "react/prop-types": [1, { "ignore": ["location", "store", "history"] }],
     "react/sort-comp": 0
   }
 }
