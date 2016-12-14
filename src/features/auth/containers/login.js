@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import autobind from 'autobind-decorator';
 import login from '../actions/login';
-import validator from '../validators';
+import schema, { rules } from '../validators';
 
 const { bool, func } = PropTypes;
 const defaultErrors = { username: null, password: null };
@@ -36,7 +36,15 @@ class Login extends Component {
     @autobind
     handleChange(event) {
         const { name, value } = event.target;
-        this.setState({ [name]: value.trim() });
+        const fieldState = rules[name](value);
+
+        this.setState({
+            [name]: value,
+            errors: {
+                ...this.state.errors,
+                [name]: fieldState.isValid ? null : fieldState.error
+            }
+        });
     }
 
     @autobind
@@ -44,7 +52,7 @@ class Login extends Component {
         event.preventDefault();
 
         const { username, password } = this.state;
-        const state = validator({ username, password });
+        const state = schema({ username, password });
 
         if (state.isValid) {
             this.props.login({ username, password });
