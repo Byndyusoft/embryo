@@ -6,12 +6,12 @@ export const request = createAction(LOGIN_REQUEST);
 export const success = createAction(LOGIN_SUCCESS);
 export const failure = createAction(LOGIN_FAILURE);
 
-export default function () {
+export default function (user) {
     return dispatch => {
         dispatch(request());
 
         return auth
-            .login()
+            .login(user)
             .then(res => dispatch(success({ payload: res.data })))
             .catch(error => dispatch(failure({ error })));
     };
