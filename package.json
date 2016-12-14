@@ -8,8 +8,8 @@
     "clean": "rimraf build/*",
     "build": "npm run lint && npm run test && npm run build:release",
     "build:debug": "npm run clean && webpack --config webpack/webpack.debug.config.js --progress --display-modules --display-error-details",
-    "build:qa": "npm run clean && webpack --config webpack/webpack.qa.config.js",
-    "build:release": "npm run clean && webpack --config webpack/webpack.release.config.js",
+    "build:qa": "npm run test && npm run clean && webpack --config webpack/webpack.qa.config.js",
+    "build:release": "npm run lint && npm run test && npm run clean && webpack --config webpack/webpack.release.config.js",
     "lint": "eslint src --ext .js",
     "start": "npm run clean && node server/index.js",
     "test": "mocha src --recursive --compilers js:babel-core/register --reporter landing"
